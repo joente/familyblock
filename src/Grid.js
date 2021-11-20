@@ -50,9 +50,9 @@ const Grid = (state) => {
     const colOnGrid = (mpos) => {
         return (
             mpos.x >= pos.x &&
-            mpos.x <= pos.x + pos.w &&
+            mpos.x < pos.x + pos.w &&
             mpos.y >= pos.y &&
-            mpos.y <= pos.y + pos.h
+            mpos.y < pos.y + pos.h
         ) ? Math.floor((mpos.x - pos.x) / (10*unit.size)) : null;
     }
 
@@ -66,6 +66,10 @@ const Grid = (state) => {
                 break;
             }
             cell = row[col];
+            if (cell === undefined) {
+                console.log("undefined cell for col and row: ", col, row);
+                return nok;
+            }
             if (cell.isEmpty()) {
                 return ok;
             }
@@ -100,7 +104,7 @@ const Grid = (state) => {
     }, mi), 999);
 
     const cellsToAnimate = [];
-    const colsMoved = Array(cols).fill(false);
+    const colsMoved = [];
 
     const processGrid = () => {
         // we never destoy cells, so do not care about references
@@ -120,7 +124,7 @@ const Grid = (state) => {
                 } else {
                     const n = toList[i];
                     if (n > 0) {
-                        colsMoved[i] = true;
+                        colsMoved.push(i);
                         cell.moveTileUp(cells[r-n][i]);
                         cellsToAnimate.push(cell);
                     }
@@ -133,10 +137,7 @@ const Grid = (state) => {
         }
 
         // Merge check...
-        for (let i = 0; i < colsMoved.length; i++) {
-            if (colsMoved[i] === false) {
-                continue;  // skipt cols which are not moved
-            }
+        for (const i of colsMoved.slice().reverse()) {
             for (let r = 0; r < rows-1; r++) {
                 const cell = cells[r][i];
 
@@ -170,7 +171,7 @@ const Grid = (state) => {
         }
 
         // done, get the next tile and reset moved cols
-        colsMoved.fill(false);
+        colsMoved.length = 0;
         if (getMaxIndex() >= targetIndex) {
             targetIndex += 2;
             tiles.nextTarget();
@@ -194,7 +195,7 @@ const Grid = (state) => {
     const addTile = (tile, col) => {
         const cell = lastRow[col];
         cell.setTile(tile);
-        colsMoved[col] = true;
+        colsMoved.push(col);
         processGrid();
     }
 
