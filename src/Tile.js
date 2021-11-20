@@ -19,8 +19,6 @@ const Tile = (state) => {
         lineJoin: 'round',
     });
 
-    console.log(color);
-
     const text = new PIXI.Text(str, style);
 
     const normalize = (isSmall) => {
@@ -46,10 +44,7 @@ const Tile = (state) => {
         container,
         normalize,
         dupTile: () => Tile({index, allTiles, str, color, unit}),
-        nextTile: () => {
-            console.log(allTiles, index);
-            return allTiles[index+1].dupTile()
-        },
+        nextTile: () => allTiles[index+1].dupTile(),
         remove: () => container.parent.removeChild(container)
     };
 }

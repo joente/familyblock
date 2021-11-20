@@ -2,7 +2,7 @@ import * as PIXI from "pixi.js";
 import Tile from "./Tile";
 
 const Tiles = (state) => {
-    let {offset, stage, unit} = state;
+    const {offset, stage, unit} = state;
 
     const tileRange = 6;
     const allTiles = [];
@@ -17,8 +17,9 @@ const Tiles = (state) => {
     const currentRaster = new PIXI.Sprite(rasterTexture);
     const nextRaster = new PIXI.Sprite(rasterTexture);
 
+    let minTileIndex = 0;
+
     const randColor = (index) => {
-        console.log(!!(index&1));
         const red = (Math.floor(Math.random() * 0x50) + ((index&1)?0x20:0x70)) << 16;
         const green = (Math.floor(Math.random() * 0x50) + ((index&2)?0x20:0x70)) << 8;
         const blue = (Math.floor(Math.random() * 0x50) + ((index&4)?0x20:0x70)) << 0;
@@ -29,7 +30,7 @@ const Tiles = (state) => {
     for (let index = 0; index < numTiles.length; ++index) {
         const color = randColor(index);
         const str = numTiles[index];
-        console.log('index: ', index, color.toString(16).padStart(6, 0));
+        // console.log('index: ', index, color.toString(16).padStart(6, 0));
         allTiles.push(Tile({index, allTiles, str, color, unit}));
     }
 
@@ -45,10 +46,16 @@ const Tiles = (state) => {
 
     const getRandomTile = (mi) => {
         // Update mi
-        mi = current && current.index < mi ? current.index : 0;
-        mi = next && next.index < mi ? next.index : mi;
+        mi = current && current.index < mi ? current.index : mi;
+        let diff;
+        if (mi < minTileIndex) {
+            diff = minTileIndex-mi;
+        } else {
+            diff = 0;
+            mi = minTileIndex;
+        }
 
-        const idx = Math.floor(Math.random() * tileRange) + mi;
+        const idx = Math.floor(Math.random() * (tileRange+diff)) + mi;
         return allTiles[idx].dupTile();
     }
 
@@ -83,7 +90,6 @@ const Tiles = (state) => {
     const newTile = (mi) => {
         current = next;
         next = getRandomTile(mi);
-        console.log(next);
         stage.addChild(next.container);
         normalizeTiles();
     };
@@ -101,6 +107,7 @@ const Tiles = (state) => {
             return tile;
         },
         resize: normalize,
+        nextTarget: () => minTileIndex++,
     }
 };
 

@@ -28,7 +28,6 @@ const Score = (state) => {
         resize: normalize,
         update: (score) => {
             const str = (score).toLocaleString();
-            console.log('update score: ', score);
             text.text = str;
             normalize();
         }

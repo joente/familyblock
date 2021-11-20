@@ -16,7 +16,7 @@ const Grid = (state) => {
     const nok = new PIXI.Sprite(nokTexture);
     const highlight = Highlight({offset, ok, nok, unit});
     let isAnimating = false;
-
+    let targetIndex = 11;  // 11 a good first target?
 
     stage.addChild(ok);
     stage.addChild(nok);
@@ -66,9 +66,6 @@ const Grid = (state) => {
                 break;
             }
             cell = row[col];
-            if (cell === undefined) {
-                console.log(col);
-            }
             if (cell.isEmpty()) {
                 return ok;
             }
@@ -92,7 +89,15 @@ const Grid = (state) => {
         }
     }
 
-    const getScore = () => cells.reduce((total, row) => row.reduce((total, cell) => total + cell.getValue(), total), 0)
+    const getScore = () => cells.reduce((total, row) => row.reduce((total, cell) => total + cell.getValue(), total), 0);
+    const getMaxIndex = () => cells.reduce((ma, row) => row.reduce((ma, cell) => {
+        const cidx = cell.getIndex();
+        return cidx === null || cidx < ma ? ma : cidx;
+    }, ma), 0);
+    const getMinIndex = () => cells.reduce((mi, row) => row.reduce((mi, cell) => {
+        const cidx = cell.getIndex();
+        return cidx === null || cidx > mi ? mi : cidx;
+    }, mi), 999);
 
     const cellsToAnimate = [];
     const colsMoved = Array(cols).fill(false);
@@ -126,9 +131,8 @@ const Grid = (state) => {
         if (cellsToAnimate.length) {
             return;
         }
-        console.log('Merge check...', colsMoved);
 
-        // Merge
+        // Merge check...
         for (let i = 0; i < colsMoved.length; i++) {
             if (colsMoved[i] === false) {
                 continue;  // skipt cols which are not moved
@@ -140,19 +144,14 @@ const Grid = (state) => {
                     break;  // done with this row
                 }
 
-                console.log("Cell index to check: ", r, i, cell.getIndex());
-
                 const cellsToCheck = [
                     {direction: "right", ce: i > 0 ? cells[r][i-1] : null},
                     {direction: "left", ce: i < cols-1 ? cells[r][i+1] : null},
                     {direction: "up", ce: cells[r+1][i]}
                 ];
 
-                console.log('toCheck: ', cellsToCheck);
-
                 cellsToCheck.forEach(({direction, ce}) => {
                     if (ce !== null && !ce.isEmpty() && ce.getIndex() === cell.getIndex()) {
-                        console.log('Animate merge: ', direction, ce.row, ' to ', cell.row);
                         if (direction === "up") {
                             cell.mergeTile(ce, direction);
                             cellsToAnimate.push(cell);
@@ -172,7 +171,11 @@ const Grid = (state) => {
 
         // done, get the next tile and reset moved cols
         colsMoved.fill(false);
-        tiles.newTile(0);
+        if (getMaxIndex() >= targetIndex) {
+            targetIndex += 2;
+            tiles.nextTarget();
+        }
+        tiles.newTile(getMinIndex());
     };
 
     const animate = () => {
@@ -203,7 +206,6 @@ const Grid = (state) => {
         final,
         addTile,
         animate,
-        getScore,
     }
 };
 

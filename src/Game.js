@@ -3,17 +3,6 @@ import Grid from "./Grid";
 import Tiles from "./Tiles";
 import Score from "./Score";
 
-/*
-
-0 1 2 3  4  5  6   7   8   9  10 11 12 13
-2 4 8 16 32 64 128 256 512 1K 2K 4K 8K 16K
-
-initial tiles: 0..5
-initial goal:
-
-
-*/
-
 const Game = (state) => {
     let container = state.container;
     let unit = {size: 10}, offset = {x: 0, y: 0};
@@ -53,8 +42,6 @@ const Game = (state) => {
         }
 
         grid.addTile(tile, col);
-        score.update(grid.getScore());
-
         grid.animate()
     }
 
