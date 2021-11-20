@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "f86c7b1d6ed0bc35af5ce386342147b6",
+    "revision": "b1c6030c5d508341337bb840ba31040a",
     "url": "https://joente.github.io/familyblock/index.html"
   },
   {
-    "revision": "d2250e6da4b2f83bd5cb",
+    "revision": "7e0147ae85de6c50f85a",
     "url": "https://joente.github.io/familyblock/static/css/main.5ecd60fb.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "https://joente.github.io/familyblock/static/js/2.0aef1490.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "d2250e6da4b2f83bd5cb",
-    "url": "https://joente.github.io/familyblock/static/js/main.f4980e39.chunk.js"
+    "revision": "7e0147ae85de6c50f85a",
+    "url": "https://joente.github.io/familyblock/static/js/main.25fe203e.chunk.js"
   },
   {
     "revision": "7a82be1ad611730f820a",

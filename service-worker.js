@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "https://joente.github.io/familyblock/precache-manifest.289a68cd9e190b3a96cf1848f6f03ace.js"
+  "https://joente.github.io/familyblock/precache-manifest.6ab1001ac7df9a2962e5aa6311c15153.js"
 );
 
 self.addEventListener('message', (event) => {
