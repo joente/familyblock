@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "/static/css/main.5ecd60fb.chunk.css",
-    "main.js": "/static/js/main.0398cda4.chunk.js",
-    "main.js.map": "/static/js/main.0398cda4.chunk.js.map",
-    "runtime-main.js": "/static/js/runtime-main.275563b9.js",
-    "runtime-main.js.map": "/static/js/runtime-main.275563b9.js.map",
-    "static/js/2.0aef1490.chunk.js": "/static/js/2.0aef1490.chunk.js",
-    "static/js/2.0aef1490.chunk.js.map": "/static/js/2.0aef1490.chunk.js.map",
-    "index.html": "/index.html",
-    "precache-manifest.4cfbb5ffbb32a83b621e42bb80f1e4c0.js": "/precache-manifest.4cfbb5ffbb32a83b621e42bb80f1e4c0.js",
-    "service-worker.js": "/service-worker.js",
-    "static/css/main.5ecd60fb.chunk.css.map": "/static/css/main.5ecd60fb.chunk.css.map",
-    "static/js/2.0aef1490.chunk.js.LICENSE.txt": "/static/js/2.0aef1490.chunk.js.LICENSE.txt"
+    "main.css": "https://joente.github.io/familyblock/static/css/main.5ecd60fb.chunk.css",
+    "main.js": "https://joente.github.io/familyblock/static/js/main.f4980e39.chunk.js",
+    "main.js.map": "https://joente.github.io/familyblock/static/js/main.f4980e39.chunk.js.map",
+    "runtime-main.js": "https://joente.github.io/familyblock/static/js/runtime-main.1f61e0b4.js",
+    "runtime-main.js.map": "https://joente.github.io/familyblock/static/js/runtime-main.1f61e0b4.js.map",
+    "static/js/2.0aef1490.chunk.js": "https://joente.github.io/familyblock/static/js/2.0aef1490.chunk.js",
+    "static/js/2.0aef1490.chunk.js.map": "https://joente.github.io/familyblock/static/js/2.0aef1490.chunk.js.map",
+    "index.html": "https://joente.github.io/familyblock/index.html",
+    "precache-manifest.289a68cd9e190b3a96cf1848f6f03ace.js": "https://joente.github.io/familyblock/precache-manifest.289a68cd9e190b3a96cf1848f6f03ace.js",
+    "service-worker.js": "https://joente.github.io/familyblock/service-worker.js",
+    "static/css/main.5ecd60fb.chunk.css.map": "https://joente.github.io/familyblock/static/css/main.5ecd60fb.chunk.css.map",
+    "static/js/2.0aef1490.chunk.js.LICENSE.txt": "https://joente.github.io/familyblock/static/js/2.0aef1490.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.275563b9.js",
+    "static/js/runtime-main.1f61e0b4.js",
     "static/js/2.0aef1490.chunk.js",
     "static/css/main.5ecd60fb.chunk.css",
-    "static/js/main.0398cda4.chunk.js"
+    "static/js/main.f4980e39.chunk.js"
   ]
 }
