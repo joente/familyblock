@@ -71,12 +71,16 @@ const Cell = (state) => {
             tile = null;
         },
         nextTile: () => {
-            const nextTile = tile.nextTile();
-            tile.container.parent.addChild(nextTile.container);
-            tile.remove();
-            tile = nextTile;
-            tile.container.position.x = cellpos.x;
-            tile.container.position.y = cellpos.y;
+            if (tile !== null) {
+                const nextTile = tile.nextTile();
+                tile.container.parent.addChild(nextTile.container);
+                tile.remove();
+                tile = nextTile;
+                tile.container.position.x = cellpos.x;
+                tile.container.position.y = cellpos.y;
+            } else {
+                console.log("tile is null when calling `nextTile()`");
+            }
         }
     }
 };

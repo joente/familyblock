@@ -45,7 +45,7 @@ const Tile = (state) => {
         normalize,
         dupTile: () => Tile({index, allTiles, str, color, unit}),
         nextTile: () => allTiles[index+1].dupTile(),
-        remove: () => container.parent.removeChild(container)
+        remove: () => container.parent ? container.parent.removeChild(container) : null,
     };
 }
 
