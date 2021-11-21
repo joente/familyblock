@@ -124,7 +124,9 @@ const Grid = (state) => {
                 } else {
                     const n = toList[i];
                     if (n > 0) {
-                        colsMoved.push(i);
+                        if (!colsMoved.includes(i)) {
+                            colsMoved.push(i);
+                        }
                         cell.moveTileUp(cells[r-n][i]);
                         cellsToAnimate.push(cell);
                     }
@@ -195,7 +197,9 @@ const Grid = (state) => {
     const addTile = (tile, col) => {
         const cell = lastRow[col];
         cell.setTile(tile);
-        colsMoved.push(col);
+        if (!colsMoved.includes(col)) {
+            colsMoved.push(col);
+        }
         processGrid();
     }
 
