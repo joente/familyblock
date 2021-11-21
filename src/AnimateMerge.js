@@ -19,7 +19,7 @@ const AnimateMerge = (state) => {
             console.log("unknown direction: ", direction);
         }
 
-        move.speed = 1*unit.size;
+        move.speed = 1*unit.size;  // normal speed; 1
         tile.width = 10*unit.size;
         tile.height = 10*unit.size;
     }

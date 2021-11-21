@@ -98,6 +98,11 @@ const Tiles = (state) => {
     stage.addChild(nextRaster);
 
     return {
+        tileByIndex: (idx) => {
+            const tile = allTiles[idx].dupTile();
+            stage.addChild(tile.container);
+            return tile;
+        },
         renderTiles,
         newTile,
         getCurrentTile: () => current,

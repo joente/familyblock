@@ -3,7 +3,7 @@ import Grid from "./Grid";
 import Tiles from "./Tiles";
 import Score from "./Score";
 
-const version = "v1.0.2";
+const version = "v1.0.3";
 
 const Game = (state) => {
     let container = state.container;
@@ -44,7 +44,7 @@ const Game = (state) => {
         }
 
         grid.addTile(tile, col);
-        grid.animate()
+        grid.animate();
     }
 
     const onPointerUp = (event) => {

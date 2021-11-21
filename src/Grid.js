@@ -106,6 +106,8 @@ const Grid = (state) => {
     const cellsToAnimate = [];
     const colsMoved = [];
 
+    const addMovedCol = col => colsMoved.includes(col) ? null : colsMoved.push(col);
+
     const processGrid = () => {
         // we never destoy cells, so do not care about references
         cellsToAnimate.length = 0;
@@ -124,9 +126,7 @@ const Grid = (state) => {
                 } else {
                     const n = toList[i];
                     if (n > 0) {
-                        if (!colsMoved.includes(i)) {
-                            colsMoved.push(i);
-                        }
+                        addMovedCol(i);
                         cell.moveTileUp(cells[r-n][i]);
                         cellsToAnimate.push(cell);
                     }
@@ -139,8 +139,8 @@ const Grid = (state) => {
         }
 
         // Merge check...
-        for (const i of colsMoved.slice().reverse()) {
-            for (let r = 0; r < rows-1; r++) {
+        for (let r = 0; r < rows-1; r++) {
+            for (const i of colsMoved) {
                 const cell = cells[r][i];
 
                 if (cell.isEmpty()) {
@@ -173,7 +173,8 @@ const Grid = (state) => {
         }
 
         // done, get the next tile and reset moved cols
-        colsMoved.length = 0;
+        colsMoved.splice(0, colsMoved.length);
+
         if (getMaxIndex() >= targetIndex) {
             targetIndex += 2;
             tiles.nextTarget();
@@ -197,9 +198,7 @@ const Grid = (state) => {
     const addTile = (tile, col) => {
         const cell = lastRow[col];
         cell.setTile(tile);
-        if (!colsMoved.includes(col)) {
-            colsMoved.push(col);
-        }
+        addMovedCol(col);
         processGrid();
     }
 
