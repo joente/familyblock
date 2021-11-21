@@ -4,7 +4,7 @@ const Tile = (state) => {
     const {index, allTiles, str, color, unit} = state;
     const value = 2<<index;
     const container = new PIXI.Container();
-    var blur = new PIXI.filters.BlurFilter(1);
+    var blur = new PIXI.filters.BlurFilter(0.5);
     const graphics = new PIXI.Graphics();
     graphics.filters = [blur];
 

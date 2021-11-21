@@ -3,6 +3,8 @@ import Grid from "./Grid";
 import Tiles from "./Tiles";
 import Score from "./Score";
 
+const version = "v1.0";
+
 const Game = (state) => {
     let container = state.container;
     let unit = {size: 10}, offset = {x: 0, y: 0};
@@ -74,6 +76,23 @@ const Game = (state) => {
     const tiles = Tiles({offset, stage, unit});
     const score = Score({offset, stage, unit});
     const grid = Grid({unit, offset, stage, score, tiles});
+
+    const style = new PIXI.TextStyle({
+        fontFamily: 'Arial',
+        fontSize: 16,
+        fontStyle: 'normal',
+        fontWeight: 'normal',
+        fill: '#999999',
+        align : 'center',
+        stroke: '#999999',
+        strokeThickness: 2,
+        lineJoin: 'round',
+    });
+
+    const text = new PIXI.Text(version, style);
+    text.position.x = 10;
+    text.position.y = 10;
+    stage.addChild(text);
 
     tiles.newTile(0);
     tiles.newTile(0);
