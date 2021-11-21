@@ -4,9 +4,9 @@ const Tile = (state) => {
     const {index, allTiles, str, color, unit} = state;
     const value = 2<<index;
     const container = new PIXI.Container();
-    var blur = new PIXI.filters.BlurFilter(0.5);
+    // var blur = new PIXI.filters.BlurFilter(0.5);
     const graphics = new PIXI.Graphics();
-    graphics.filters = [blur];
+    // graphics.filters = [blur];
 
     const style = new PIXI.TextStyle({
         fontFamily: 'Arial',
@@ -15,7 +15,7 @@ const Tile = (state) => {
         fill: '#ffffff',
         align : 'center',
         stroke: '#ffffff',
-        strokeThickness: 2,
+        strokeThickness: 1,
         lineJoin: 'round',
     });
 

@@ -3,7 +3,7 @@ import Grid from "./Grid";
 import Tiles from "./Tiles";
 import Score from "./Score";
 
-const version = "v1.0.1";
+const version = "v1.0.2";
 
 const Game = (state) => {
     let container = state.container;
