@@ -16,7 +16,7 @@ const Grid = (state) => {
     const nok = new PIXI.Sprite(nokTexture);
     const highlight = Highlight({offset, ok, nok, unit});
     let isAnimating = false;
-    let targetIndex = 11;  // 11 a good first target?
+    let targetIndex = 9;  // 9 is the first target
 
     stage.addChild(ok);
     stage.addChild(nok);
@@ -139,8 +139,8 @@ const Grid = (state) => {
         }
 
         // Merge check...
-        console.log('-------')
-        console.log(colsMoved.join(' - '))
+        // console.log('-------')
+        // console.log(colsMoved.join(' - '))
         for (let r = 0; r < rows-1; r++) {
             for (const i of colsMoved) {
                 const cell = cells[r][i];
@@ -175,7 +175,7 @@ const Grid = (state) => {
         }
 
         // done, get the next tile and reset moved cols
-        console.log('+++++++')
+        // console.log('+++++++')
         colsMoved.splice(0, colsMoved.length);
 
         if (getMaxIndex() >= targetIndex) {

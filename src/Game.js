@@ -3,7 +3,7 @@ import Grid from "./Grid";
 import Tiles from "./Tiles";
 import Score from "./Score";
 
-const version = "v1.0.4";
+const gameTitle = "Family Block";
 
 const Game = (state) => {
     let container = state.container;
@@ -79,19 +79,26 @@ const Game = (state) => {
 
     const style = new PIXI.TextStyle({
         fontFamily: 'Arial',
-        fontSize: 16,
-        fontStyle: 'normal',
-        fontWeight: 'normal',
-        fill: '#999999',
-        align : 'center',
-        stroke: '#999999',
-        strokeThickness: 2,
+        dropShadow: true,
+        dropShadowAlpha: 0.8,
+        dropShadowAngle: 2.1,
+        dropShadowBlur: 4,
+        dropShadowColor: '#4a1b7b',
+        dropShadowDistance: 10,
+        fill: ['#ffffff'],
+        stroke: '#8a3bbb',
+        fontSize: 22,
+        fontWeight: 'lighter',
         lineJoin: 'round',
+        strokeThickness: 14,
     });
 
-    const text = new PIXI.Text(version, style);
-    text.position.x = 10;
-    text.position.y = 10;
+
+    const text = new PIXI.Text(gameTitle, style);
+    text.skew.set(0.45, -0.2);
+    text.anchor.set(0.5, 0.5);
+    text.x = 100;
+    text.y = 40;
     stage.addChild(text);
 
     tiles.newTile(0);
