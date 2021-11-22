@@ -139,12 +139,14 @@ const Grid = (state) => {
         }
 
         // Merge check...
+        console.log('-------')
+        console.log(colsMoved.join(' - '))
         for (let r = 0; r < rows-1; r++) {
             for (const i of colsMoved) {
                 const cell = cells[r][i];
 
                 if (cell.isEmpty()) {
-                    break;  // done with this row
+                    continue;
                 }
 
                 const cellsToCheck = [
@@ -173,6 +175,7 @@ const Grid = (state) => {
         }
 
         // done, get the next tile and reset moved cols
+        console.log('+++++++')
         colsMoved.splice(0, colsMoved.length);
 
         if (getMaxIndex() >= targetIndex) {
