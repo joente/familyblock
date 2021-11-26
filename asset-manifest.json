@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "https://joente.github.io/familyblock/static/css/main.5ecd60fb.chunk.css",
-    "main.js": "https://joente.github.io/familyblock/static/js/main.bd77d46e.chunk.js",
-    "main.js.map": "https://joente.github.io/familyblock/static/js/main.bd77d46e.chunk.js.map",
+    "main.js": "https://joente.github.io/familyblock/static/js/main.760b3b87.chunk.js",
+    "main.js.map": "https://joente.github.io/familyblock/static/js/main.760b3b87.chunk.js.map",
     "runtime-main.js": "https://joente.github.io/familyblock/static/js/runtime-main.34e0f37f.js",
     "runtime-main.js.map": "https://joente.github.io/familyblock/static/js/runtime-main.34e0f37f.js.map",
     "static/js/2.85029658.chunk.js": "https://joente.github.io/familyblock/static/js/2.85029658.chunk.js",
     "static/js/2.85029658.chunk.js.map": "https://joente.github.io/familyblock/static/js/2.85029658.chunk.js.map",
     "index.html": "https://joente.github.io/familyblock/index.html",
-    "precache-manifest.48c1de8bdec445299414b97f3b0014a2.js": "https://joente.github.io/familyblock/precache-manifest.48c1de8bdec445299414b97f3b0014a2.js",
+    "precache-manifest.f5796ee4933d4e1fad58c994c010353a.js": "https://joente.github.io/familyblock/precache-manifest.f5796ee4933d4e1fad58c994c010353a.js",
     "service-worker.js": "https://joente.github.io/familyblock/service-worker.js",
     "static/css/main.5ecd60fb.chunk.css.map": "https://joente.github.io/familyblock/static/css/main.5ecd60fb.chunk.css.map",
     "static/js/2.85029658.chunk.js.LICENSE.txt": "https://joente.github.io/familyblock/static/js/2.85029658.chunk.js.LICENSE.txt"
@@ -17,6 +17,6 @@
     "static/js/runtime-main.34e0f37f.js",
     "static/js/2.85029658.chunk.js",
     "static/css/main.5ecd60fb.chunk.css",
-    "static/js/main.bd77d46e.chunk.js"
+    "static/js/main.760b3b87.chunk.js"
   ]
 }
