@@ -71,6 +71,10 @@ const Game = (state) => {
             offset.x = (ww - (unit.size * 60)) / 2;;
             offset.y = 0;
         }
+
+        text.style.fontSize = unit.size * 2.5;
+        text.x = offset.x + unit.size * 16;
+        text.y = offset.y + unit.size * 84;
     }
 
     const tiles = Tiles({offset, stage, unit});
@@ -82,21 +86,20 @@ const Game = (state) => {
         dropShadow: true,
         dropShadowAlpha: 0.8,
         dropShadowAngle: 2.1,
-        dropShadowBlur: 4,
+        dropShadowBlur: 2,
         dropShadowColor: '#4a1b7b',
         dropShadowDistance: 10,
         fill: ['#ffffff'],
         stroke: '#8a3bbb',
-        fontSize: 22,
+        fontSize: 16,
         fontWeight: 'lighter',
         lineJoin: 'round',
-        strokeThickness: 14,
+        strokeThickness: 11,
     });
 
-
     const text = new PIXI.Text(gameTitle, style);
-    text.skew.set(0.45, -0.2);
-    text.anchor.set(0.5, 0.5);
+    text.skew.set(-0.45, 0.2);
+    text.anchor.set(0.5, -0.5);
     text.x = 100;
     text.y = 40;
     stage.addChild(text);

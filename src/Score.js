@@ -19,7 +19,8 @@ const Score = (state) => {
 
     const normalize = () => {
         text.x = offset.x + 30*unit.size - text.width/2;
-        text.y = offset.y + 1*unit.size;
+        text.y = offset.y + 2*unit.size;
+        text.style.fontSize = unit.size*4;
     }
 
     stage.addChild(text);
