@@ -1,2 +1,4 @@
-# familyblock
+# FamilyBlock
+
 Game with PixiJS
+
